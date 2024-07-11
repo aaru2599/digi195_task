@@ -40,8 +40,8 @@ const CryptoVisualization = () => {
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
       <EthereumLogo />
-      
-      <OrbitControls enableZoom={false} enablePan={false} />
+
+      {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
     </Canvas>
   );
 };

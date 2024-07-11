@@ -11,7 +11,7 @@ const CryptoVisualization = () => {
       <ambientLight intensity={2} />
       <pointLight position={[10, 10, 10]} />
       <CryptoLogo />
-      <OrbitControls enableZoom={false} enablePan={false} />
+      {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
     </Canvas>
   );
 };

@@ -8,9 +8,9 @@ const EthereumLogo = () => {
 
   useFrame(() => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += 0.05;
+      groupRef.current.rotation.y += 0.03;
       const elapsed = clockRef.current.getElapsedTime();
-      groupRef.current.position.y = Math.sin(elapsed) * 0.2; // Up and down movement
+       groupRef.current.position.y = Math.sin(elapsed * 3) * 0.2; // Up and down movement
     }
   });
 

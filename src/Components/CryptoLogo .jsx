@@ -2,13 +2,13 @@ import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const EthereumLogo = () => {
+const CryptoLogo = () => {
   const groupRef = useRef();
   const clockRef = useRef(new THREE.Clock());
 
   useFrame(() => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += 0.03;
+      groupRef.current.rotation.y += 0.02;
       const elapsed = clockRef.current.getElapsedTime();
        groupRef.current.position.y = Math.sin(elapsed * 5) * 0.2; // Up and down movement
     }
@@ -27,7 +27,7 @@ const EthereumLogo = () => {
     0, -1, 0,   // Vertex 5 (bottom point)
   ]);
 
-  // Create the faces for the full diamond geometry
+  //  faces for the top diamond geometry
   const fullIndices = [
     // Top half
     0, 1, 2,
@@ -42,13 +42,13 @@ const EthereumLogo = () => {
     5, 1, 4,
   ];
 
-  // Create a BufferGeometry and set its attributes for the full diamond
+  // Create a BufferGeometry and set its attributes for the top diamond
   const fullGeometry = new THREE.BufferGeometry();
   fullGeometry.setAttribute('position', new THREE.BufferAttribute(fullVertices, 3));
   fullGeometry.setIndex(fullIndices);
   fullGeometry.computeVertexNormals();
 
-  // Create the vertices for the bottom half V shape
+  //  vertices for the bottom half V shape
   const baseVertices = new Float32Array([
     0, -1, 0,   // Vertex 5 (bottom point)
     -0.5, 0, 0.5,  // Vertex 1 (top front left)
@@ -57,7 +57,7 @@ const EthereumLogo = () => {
     -0.5, 0, -0.5, // Vertex 4 (top back left)
   ]);
 
-  // Create the faces for the bottom half V shape
+  //  faces for the bottom half V shape
   const baseIndices = [
     0, 1, 2,  // Front face
     0, 2, 3,  // Right face
@@ -80,14 +80,14 @@ const EthereumLogo = () => {
         <lineBasicMaterial color="#ffffff" />
       </lineSegments>
 
-      <mesh geometry={baseGeometry} position={[0, -1.2, 0]} receiveShadow castShadow>
+      <mesh geometry={baseGeometry} position={[0, -1, 0]} receiveShadow castShadow>
         <meshStandardMaterial color="#7E97FF" flatShading receiveShadow />
       </mesh>
-      <lineSegments geometry={new THREE.EdgesGeometry(baseGeometry)} position={[0, -1.2, 0]} receiveShadow castShadow>
+      <lineSegments geometry={new THREE.EdgesGeometry(baseGeometry)} position={[0, -1, 0]} receiveShadow castShadow>
         <lineBasicMaterial color="#ffffff" />
       </lineSegments>
     </group>
   );
 };
 
-export default EthereumLogo;
+export default CryptoLogo;
